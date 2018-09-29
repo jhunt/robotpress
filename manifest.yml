@@ -1,0 +1,14 @@
+---
+applications:
+  - name:     robot-staff
+    path:     .
+    memory:   1G
+    command:  bundle exec rake backend
+    no-route: yes
+    health-check-type: process
+
+  - name:     robot-press
+    path:     .
+    memory:   128M
+    command:  bundle exec rake frontend
+    routes:  [route: robotpress.cfapps.io]

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>🤖RobotPress</title>
+<style type="text/css">
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html { height: 100%; }
+body {
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+  background-attachment: fixed;
+}
+#main {
+  width: 60vw;
+  background-color: #fff;
+  box-shadow: 2px 2px 20px #000;
+  margin: 15vh auto;
+}
+#main > h1 {
+  background: #000 url(logo1.png) 0% 0% no-repeat;
+  background-size: contain;
+  text-indent: -5000px;
+  min-height: 80px;
+}
+#main > footer {
+  position: relative;
+}
+#main > footer p {
+  font-size: 80%;
+  color: #667;
+  position: absolute;
+  left: 8px;
+  bottom: 5px;
+}
+#main > footer h2 {
+  background: #fff url(logo2.png) 100% 0% no-repeat;
+  background-size: contain;
+  text-indent: -5000px;
+  min-height: 40px;
+}
+#main .wrap {
+  padding: 5em;
+  font-family: sans-serif;
+}
+#main .wrap.s1 p {
+  font-size: 16pt;
+  margin: 0 2em 2em 0;
+  font-style: italic;
+  line-height: 1.2em;
+}
+#main .wrap form > div label {
+  margin-top: 18pt;
+  display: block;
+}
+#main .wrap.s1 form .styles {
+  display: flex;
+}
+#main .wrap.s1 form button {
+  background-color: #ccc;
+  font-size: 14pt;
+  padding: 1em;
+  margin: 0.2em;
+  border: none;
+  border-radius: 1em;
+  font-weight: bold;
+  color: white;
+}
+#main .wrap.s1 form button:hover {
+  color: #F19837;
+  background-color: #000;
+  cursor: pointer;
+}
+
+#main #loading {
+  font-style: italic;
+  color: #111;
+  font-size: 24pt;
+  text-align: center;
+  min-height: 1em;
+}
+
+#main .wrap.s3 h1 {
+  font-size: 36pt;
+  font-wright: bold;
+  margin: 0 0 0.3em 0;
+  text-transform: capitalize;
+}
+
+#main .wrap.s3 a {
+  margin: 0 0 19px 0;
+  display: block;
+  color: #F19837;
+  text-decoration: none;
+  font-size: 16pt;
+}
+
+#main .wrap.s3 .style {
+  font-size: 16pt;
+}
+#main .wrap.s3 .style em {
+  color: #F19837;
+}
+
+#main .wrap.s3 .text p {
+  margin: 2em 1em;
+  line-height: 1.4em;
+  font-style: italic;
+  color: #444;
+}
+</style>
+</head>
+<body>
+
+  <div id="main">
+    <h1>RobotPress</h1>
+
+    <div class="wrap s1">
+    <p>Tell me a story in the style of...</p>
+
+    <form>
+      <div>
+        <div class="styles">
+        <button data-style="twain">Mark Twain</button>
+        <button data-style="hawthorne">Nathaniel Hawthorne</button>
+        <button data-style="bronte">Charlotte Brontë</button>
+        <button data-style="baum">L. Frank Baum</button>
+        <button data-style="cicero">Cicero (Marcus Tullius)</button>
+        </div>
+      </div>
+    </form>
+    </div>
+
+    <div class="wrap s2" style="display: none;">
+      <p id="loading"><span></span></p>
+    </div>
+
+    <div class="wrap s3" style="display: none;">
+      <a href="/">&larr; back</a>
+      <h1></h1><span class="style">in the style of <em></em></span>
+      <div class="text"></div>
+    </div>
+
+    <footer>
+      <p>Copyright &copy; 2018 James Hunt</p>
+      <h2>RobotPress</h2>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+  <script src="/robots.js"></script>
+</body>
+</html>
